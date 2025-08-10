@@ -76,25 +76,56 @@
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 40px;
         }
 
         .hero h1 {
             font-size: clamp(40px, 8vw, 80px);
             font-weight: 800;
-            color: #333;
+            color: white;
             margin-bottom: 30px;
             line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 18px;
-            color: #666;
+            color: white;
             margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         /* Photo Showcase */
@@ -572,7 +603,10 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
+        <div class="hero-background">
+            <img src="optimized-images/hero-image.jpg" alt="Beautiful Wedding Photography">
+        </div>
+        <div class="hero-content">
             <h1>Capturing Life's Beautiful Moments</h1>
             <p>Lexington, Kentucky's Wedding Photographer ready to turn your special day into a visual masterpiece, capturing all the feels and candid moments.</p>
             <a href="#contact" class="btn">LET'S CONNECT</a>
