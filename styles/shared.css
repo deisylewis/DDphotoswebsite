@@ -1,0 +1,236 @@
+/* D&D Photos Shared Design System */
+:root {
+    --wedding-primary: #fff8f6;      /* section background */
+    --wedding-secondary: #fdf4f2;    /* alternate section background */
+    --wedding-dark: #2e1e1a;         /* dark text */
+    --wedding-muted: #7c6f6a;        /* muted text */
+    --wedding-accent: #f4b6a6;       /* accent color for price, buttons, highlights */
+    --wedding-accent-light: #f1c8c7; /* light accent backgrounds */
+    --wedding-overlay: rgba(255, 255, 255, 0.7); /* semi-transparent overlay */
+    --wedding-accent-light-bg: rgba(244, 182, 166, 0.2); /* light accent backgrounds */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--wedding-dark);
+    background-color: var(--wedding-primary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 8px 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--wedding-dark);
+    transition: color 0.3s ease;
+}
+
+.brand-logo:hover {
+    color: var(--wedding-accent);
+}
+
+.brand-logo-main {
+    color: var(--wedding-dark);
+}
+
+.brand-logo-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--wedding-muted);
+    margin-left: 8px;
+    text-transform: lowercase;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--wedding-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    background: rgba(241, 200, 199, 0.3);
+    color: var(--wedding-dark);
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(rgba(253, 245, 245, 0.9), rgba(255, 255, 255, 0.9)), url('../optimized-images/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0 80px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--wedding-dark);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.page-header p {
+    font-size: 18px;
+    color: var(--wedding-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--wedding-dark);
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--wedding-accent-light), var(--wedding-accent));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--wedding-muted);
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--wedding-accent-light);
+    color: var(--wedding-dark);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--wedding-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(241, 200, 199, 0.4);
+}
+
+.btn-primary {
+    background: var(--wedding-accent-light);
+    color: var(--wedding-dark);
+}
+
+.btn-primary:hover {
+    background: var(--wedding-accent);
+}
+
+/* Footer */
+footer {
+    background: var(--wedding-dark);
+    color: #666666;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+footer a {
+    color: var(--wedding-accent-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--wedding-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container,
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .page-header {
+        padding: 100px 0 60px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .page-header p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
