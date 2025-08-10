@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Photos | Lexington Wedding Photographer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 35px;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Photo Showcase */
+        .photo-showcase {
+            padding: 80px 0;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .showcase-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .showcase-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .showcase-item img[loading] {
+            opacity: 1;
+        }
+
+        .showcase-item img.loaded {
+            opacity: 1;
+        }
+
+        .showcase-item.large img {
+            height: 400px;
+        }
+
+        .showcase-item:not(.large) img {
+            height: 200px;
+        }
+
+        /* Why Section */
+        .why-section {
+            padding: 100px 0;
+            background: #f8f8f8;
+        }
+
+        .why-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .why-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            max-width: 700px;
+        }
+
+        /* Section Titles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-image-main img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image-main img[loading] {
+            opacity: 1;
+        }
+
+        .about-image-main img.loaded {
+            opacity: 1;
+        }
+
+        .about-image-secondary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-image-secondary img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image-secondary img[loading] {
+            opacity: 1;
+        }
+
+        .about-image-secondary img.loaded {
+            opacity: 1;
+        }
+
+        /* Packages */
+        .packages {
+            background: #f8f8f8;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .package {
+            background: white;
+            padding: 40px;
+            text-align: left;
+        }
+
+        .package h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .package ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .package li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .package .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Video Notice */
+        .video-notice {
+            background: #333;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .video-notice h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .video-notice a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            padding: 20px 0;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Contact */
+        .contact {
+            background: #333;
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: 1px solid #555;
+            background: transparent;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #999;
+        }
+
+        .contact-form button {
+            padding: 15px;
+            background: white;
+            color: #333;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            opacity: 0.9;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 14px;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container,
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image-secondary {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .about-image-secondary img {
+                height: 120px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .showcase-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .showcase-item.large img {
+                height: 250px;
+            }
+
+            .showcase-item:not(.large) img {
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='300' font-weight='bold' fill='%23333'%3EDD%3C/text%3E%3Ctext x='50%25' y='85%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='60' font-weight='bold' fill='%23333'%3EPHOTOS%3C/text%3E%3C/svg%3E" alt="D&D Photos Logo" class="logo-image">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                                    <li><a href="#packages">PRICING</a></li>
+                    <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Capturing Life's Beautiful Moments</h1>
+            <p>Lexington, Kentucky's Wedding Photographer ready to turn your special day into a visual masterpiece, capturing all the feels and candid moments.</p>
+            <a href="#contact" class="btn">LET'S CONNECT</a>
+        </div>
+    </section>
+
+    <!-- Photo Showcase Section -->
+    <section class="photo-showcase">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">CAPTURING LOVE STORIES IN LEXINGTON</p>
+            <div class="showcase-grid">
+                <div class="showcase-item large">
+                    <img src="optimized-images/featured1.jpg" alt="Wedding Photography" loading="lazy">
+                </div>
+                <div class="showcase-item">
+                    <img src="optimized-images/featured2.jpg" alt="Wedding Photography" loading="lazy">
+                </div>
+                <div class="showcase-item">
+                    <img src="optimized-images/featured3.jpg" alt="Wedding Photography" loading="lazy">
+                </div>
+                <div class="showcase-item large">
+                    <img src="optimized-images/featured4.jpg" alt="Wedding Photography" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container">
+            <h2>Why You're HERE</h2>
+            <p>You're here because you're looking for something different. You don't want the typical, corny wedding pictures we've all seen 1,000 times before. You want something more. Something unique. You want wedding photos that will stop you in your tracks and make you say "Whoa."</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <p class="section-subtitle">LEXINGTON, KENTUCKY WEDDING PHOTOGRAPHER</p>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hey there! I'm Deisy, your go-to wedding photographer in the heart of Lexington, KY! As your local Lexington wedding photographer, I'm all about bringing out the genuine vibes and the unique charm of your celebration.</p>
+                    <p>From the sweet "I dos" to the wild dance floor shenanigans, count on me to freeze those memories in time. I know all the cool spots in Lexington, from iconic landmarks to hidden gems, ensuring your photos scream "Bluegrass State" vibes.</p>
+                    <p>Let's chat and make your wedding day photo dreams a reality – with me, it's all about turning your love story into frame-worthy magic!</p>
+                </div>
+                <div class="about-images">
+                    <div class="about-image-main">
+                        <img src="optimized-images/about-main.jpg" alt="Deisy - Wedding Photographer" loading="lazy">
+                    </div>
+                    <div class="about-image-secondary">
+                        <img src="optimized-images/about-accent1.jpg" alt="Wedding Photography" loading="lazy">
+                        <img src="optimized-images/about-accent2.jpg" alt="Wedding Photography" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section packages">
+        <div class="container">
+            <h2 class="section-title">Our Packages</h2>
+            
+            <div class="packages-grid">
+                <div class="package">
+                    <h3>THE SILVER COLLECTION</h3>
+                    <ul>
+                        <li>4 Hours of Coverage</li>
+                        <li>1 Photographer</li>
+                        <li>Digital Delivery</li>
+                        <li>Print Release</li>
+                    </ul>
+                    <div class="price">$1,200</div>
+                </div>
+
+                <div class="package">
+                    <h3>THE GOLD COLLECTION</h3>
+                    <ul>
+                        <li>6 Hours of Coverage</li>
+                        <li>1 Photographer</li>
+                        <li>Print Release</li>
+                        <li>Engagement Session</li>
+                        <li>Digital Delivery</li>
+                    </ul>
+                    <div class="price">$1,600</div>
+                </div>
+
+                <div class="package">
+                    <h3>THE DIAMOND COLLECTION</h3>
+                    <ul>
+                        <li>8 Hours of Coverage</li>
+                        <li>2 Photographers</li>
+                        <li>Engagement Session</li>
+                        <li>Print Release</li>
+                        <li>Digital Delivery</li>
+                    </ul>
+                    <div class="price">$2,800</div>
+                </div>
+            </div>
+
+            <div class="video-notice">
+                <h3>We are now also offering video packages!</h3>
+                <a href="#contact">CLICK HERE FOR VIDEO</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">All Our Photography Packages Include</h2>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Professional Wedding Photographer</h3>
+                    <p>Each package includes the expertise of a seasoned professional dedicated to ensuring every moment is preserved with artistry and attention to detail.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Initial Consultation</h3>
+                    <p>We sit down with you to discuss your preferences, style, and any specific moments you want highlighted in your photographs.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Online Photo Gallery</h3>
+                    <p>Access your memories anytime, anywhere! Private online gallery to view and download all your high-resolution images.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Print Rights</h3>
+                    <p>Full print rights to your images, allowing you to create beautiful albums, prints, or share them digitally without restrictions.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Pre-Wedding Consultation</h3>
+                    <p>30-minute consultation a month before your wedding to go over all final details and ensure we're prepared for your big day.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Timeline Assistance</h3>
+                    <p>Help creating a personalized wedding day timeline that ensures ample time for photography without feeling rushed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 class="section-title">Let's Talk!</h2>
+                    <p>Tell us about your vision for your special day</p>
+                    
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Wedding Date">
+                        <textarea rows="5" placeholder="Tell me about your vision for your special day..." required></textarea>
+                        <button type="submit">LET'S CONNECT</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <p><strong>Based out of Lexington, Kentucky</strong></p>
+                    <p>Available for travel statewide</p>
+                    <p>Email: hello@dndphotos.com</p>
+                    <p>Phone: (859) 536-8512</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/dndphotoslex" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/dndphotoslex" target="_blank">Instagram</a>
+                    </div>
+                    
+                    <p style="margin-top: 2rem; font-style: italic;">"What's your dream? Let's make it a reality."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 by D&D Photos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact form
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Simple image loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
