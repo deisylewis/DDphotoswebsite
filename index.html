@@ -86,17 +86,18 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #F8F5F2;
+            background-color: var(--wedding-primary);
         }
         
         /* Wedding Color Scheme */
         :root {
-            --wedding-primary: #F8F5F2;
-            --wedding-dark: #2D3748;
-            --wedding-muted: #718096;
-            --wedding-accent: #E53E3E;
-            --wedding-overlay: rgba(255, 255, 255, 0.9);
-            --wedding-accent-30: rgba(229, 62, 62, 0.3);
+            --wedding-primary: #fff8f6;      /* section background */
+            --wedding-secondary: #fdf4f2;    /* alternate section background */
+            --wedding-dark: #2e1e1a;         /* dark text */
+            --wedding-muted: #7c6f6a;        /* muted text */
+            --wedding-accent: #f4b6a6;       /* accent color for price, buttons, highlights */
+            --wedding-overlay: rgba(255, 255, 255, 0.7); /* semi-transparent overlay */
+            --wedding-accent-light: rgba(244, 182, 166, 0.2); /* light accent backgrounds */
         }
 
         .container {
@@ -377,7 +378,7 @@
             padding: 50px 40px;
             text-align: center;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(229, 62, 62, 0.1);
+            box-shadow: 0 4px 20px var(--wedding-accent-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -385,7 +386,7 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 500px;
-            border: 1px solid var(--wedding-accent-30);
+            border: 1px solid var(--wedding-accent-light);
             backdrop-filter: blur(8px);
         }
 
@@ -413,7 +414,7 @@
             padding: 12px 0;
             color: var(--wedding-muted);
             font-size: 15px;
-            border-bottom: 1px solid rgba(229, 62, 62, 0.1);
+            border-bottom: 1px solid var(--wedding-accent-light);
             position: relative;
             padding-left: 25px;
         }
@@ -575,7 +576,7 @@
         }
 
         .contact-link:hover {
-            color: #C53030;
+            color: #d4a5a5;
             text-decoration: none;
         }
 
@@ -600,7 +601,7 @@
             display: inline-block;
             padding: 15px 30px;
             background: var(--wedding-accent);
-            color: white;
+            color: var(--wedding-dark);
             text-decoration: none;
             font-weight: 500;
             border-radius: 25px;
