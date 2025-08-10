@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Photos | Lexington Wedding Photographer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -29,10 +30,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 20px 0;
+            padding: 30px 0;
         }
 
         .nav-container {
@@ -50,10 +51,25 @@
             text-decoration: none;
         }
 
-        .logo-image {
-            height: 50px;
-            width: auto;
-            margin-right: 8px;
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo span {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            font-weight: 400;
+            color: #f8f8f8;
+            margin: 0 12px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .nav-menu {
@@ -589,7 +605,7 @@
     <nav>
         <div class="nav-container">
             <a href="#home" class="logo">
-                <img src="optimized-images/logo-new.jpg" alt="D&D Photos Logo" class="logo-image">
+                D<span>&</span>D PHOTOS
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">HOME</a></li>
