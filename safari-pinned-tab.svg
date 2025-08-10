@@ -1,7 +1,0 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <!-- Left D -->
-  <path d="M4 3 L4 13 L10 13 Q12 13 12 11 L12 5 Q12 3 10 3 L4 3 Z" fill="currentColor"/>
-  
-  <!-- Right D (mirrored and intertwined) -->
-  <path d="M6 3 L6 13 L12 13 Q14 13 14 11 L14 5 Q14 3 12 3 L6 3 Z" fill="currentColor" opacity="0.8"/>
-</svg>

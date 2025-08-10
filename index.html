@@ -30,12 +30,13 @@
     <!-- <meta name="twitter:site" content="@dndphotoslex"> -->
     
     <!-- Favicons -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e91e63">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+    
     <meta name="theme-color" content="#fff8f6">
     <meta name="msapplication-TileColor" content="#fff8f6">
     
@@ -365,7 +366,7 @@
 
         /* Packages */
         .packages {
-            background: #f8f8f8;
+            background: #fdf5f5;
         }
 
         .packages-grid {
@@ -376,12 +377,12 @@
         }
 
         .package {
-            background: var(--wedding-overlay);
+            background: #f9efeb;
             padding: 50px 40px;
             text-align: center;
             border-radius: 12px;
             box-shadow: 0 4px 20px var(--wedding-accent-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -395,6 +396,7 @@
         .package:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3), 0 4px 20px var(--wedding-accent-light);
+            background: #fbefef;
         }
 
         .package h3 {
@@ -453,7 +455,7 @@
             color: white;
             padding: 60px 40px;
             text-align: center;
-            margin: 60px 0;
+            margin: 60px 0 20px 0;
         }
 
         .video-notice h3 {
@@ -490,6 +492,10 @@
 
 
         /* Features */
+        .features-section {
+            padding-top: 40px;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -602,7 +608,7 @@
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: var(--wedding-accent);
+            background: #f1c8c7;
             color: var(--wedding-dark);
             text-decoration: none;
             font-weight: 500;
@@ -843,7 +849,7 @@
 
 
     <!-- Features Section -->
-    <section class="section">
+    <section class="section features-section">
         <div class="container">
             <h2 class="section-title">All Our Photography Packages Include</h2>
             
