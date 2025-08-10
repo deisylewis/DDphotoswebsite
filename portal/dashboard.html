@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | D&D Photos Client Portal</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Client dashboard for D&D Photos - manage payments, contracts, and proposals.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/logo.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2e1e1a;
+            background: #fdf5f5;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #2e1e1a;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #2e1e1a;
+        }
+
+        .user-email {
+            font-size: 14px;
+            color: #7c6f6a;
+        }
+
+        .logout-btn {
+            background: #f1c8c7;
+            color: #2e1e1a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #e8b8b7;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2e1e1a;
+        }
+
+        .payment-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .payment-item {
+            text-align: center;
+            padding: 20px;
+            background: #fdf5f5;
+            border-radius: 8px;
+        }
+
+        .payment-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2e1e1a;
+            margin-bottom: 5px;
+        }
+
+        .payment-label {
+            font-size: 14px;
+            color: #7c6f6a;
+        }
+
+        .payment-list {
+            margin-top: 20px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e8e4e1;
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-details h4 {
+            margin-bottom: 5px;
+            color: #2e1e1a;
+        }
+
+        .payment-details p {
+            font-size: 14px;
+            color: #7c6f6a;
+        }
+
+        .payment-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-paid {
+            background: #e6ffe6;
+            color: #00b894;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-overdue {
+            background: #ffe6e6;
+            color: #d63031;
+        }
+
+        .pay-btn {
+            background: #f1c8c7;
+            color: #2e1e1a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .pay-btn:hover {
+            background: #e8b8b7;
+        }
+
+        .document-list {
+            margin-top: 20px;
+        }
+
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e8e4e1;
+        }
+
+        .document-item:last-child {
+            border-bottom: none;
+        }
+
+        .document-info h4 {
+            margin-bottom: 5px;
+            color: #2e1e1a;
+        }
+
+        .document-info p {
+            font-size: 14px;
+            color: #7c6f6a;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #f1c8c7;
+            color: #2e1e1a;
+        }
+
+        .btn-primary:hover {
+            background: #e8b8b7;
+        }
+
+        .btn-secondary {
+            background: #e8e4e1;
+            color: #2e1e1a;
+        }
+
+        .btn-secondary:hover {
+            background: #d4d0cd;
+        }
+
+        .btn-success {
+            background: #00b894;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #00a085;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #2e1e1a;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #7c6f6a;
+        }
+
+        .close-btn:hover {
+            color: #2e1e1a;
+        }
+
+        .document-viewer {
+            border: 1px solid #e8e4e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 400px;
+            background: #fafafa;
+        }
+
+        .signature-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e4e1;
+        }
+
+        .signature-pad {
+            border: 2px dashed #e8e4e1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 100px;
+            cursor: crosshair;
+        }
+
+        .signature-pad canvas {
+            border: 1px solid #e8e4e1;
+            border-radius: 4px;
+        }
+
+        .signature-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f1c8c7;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .user-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>D&D Photos</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <div class="user-name" id="userName">Loading...</div>
+                    <div class="user-email" id="userEmail">loading@example.com</div>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="dashboard-grid">
+            <!-- Payment Summary Card -->
+            <div class="card">
+                <h2>Payment Summary</h2>
+                <div class="payment-summary">
+                    <div class="payment-item">
+                        <div class="payment-amount" id="totalAmount">$0</div>
+                        <div class="payment-label">Total Due</div>
+                    </div>
+                    <div class="payment-item">
+                        <div class="payment-amount" id="paidAmount">$0</div>
+                        <div class="payment-label">Paid</div>
+                    </div>
+                </div>
+                
+                <div class="payment-list" id="paymentList">
+                    <!-- Payment items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Documents Card -->
+            <div class="card">
+                <h2>Documents & Contracts</h2>
+                <div class="document-list" id="documentList">
+                    <!-- Documents will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Document Viewer Modal -->
+    <div id="documentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Document Title</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="document-viewer" id="documentViewer">
+                <!-- Document content will be loaded here -->
+            </div>
+            <div class="signature-section" id="signatureSection" style="display: none;">
+                <h4>Digital Signature</h4>
+                <div class="signature-pad" id="signaturePad">
+                    <canvas id="signatureCanvas" width="400" height="100"></canvas>
+                </div>
+                <div class="signature-actions">
+                    <button class="btn btn-secondary" onclick="clearSignature()">Clear</button>
+                    <button class="btn btn-success" onclick="signDocument()">Sign & Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = null;
+        let payments = [];
+        let documents = [];
+        let signatureCanvas = null;
+        let isDrawing = false;
+
+        // Initialize dashboard
+        window.addEventListener('load', () => {
+            checkAuth();
+            loadUserData();
+            loadPayments();
+            loadDocuments();
+            initSignaturePad();
+        });
+
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('userToken');
+            if (!token) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Load user data
+        function loadUserData() {
+            const userData = localStorage.getItem('userData');
+            if (userData) {
+                currentUser = JSON.parse(userData);
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userEmail').textContent = currentUser.email;
+            }
+        }
+
+        // Load payments (mock data - replace with API call)
+        async function loadPayments() {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            payments = [
+                {
+                    id: 1,
+                    description: 'Wedding Photography - Silver Package',
+                    amount: 1200,
+                    dueDate: '2025-09-15',
+                    status: 'pending',
+                    paidAmount: 600
+                },
+                {
+                    id: 2,
+                    description: 'Engagement Session',
+                    amount: 300,
+                    dueDate: '2025-08-20',
+                    status: 'overdue',
+                    paidAmount: 0
+                },
+                {
+                    id: 3,
+                    description: 'Wedding Photography - Gold Package',
+                    amount: 1800,
+                    dueDate: '2025-10-01',
+                    status: 'paid',
+                    paidAmount: 1800
+                }
+            ];
+            
+            displayPayments();
+        }
+
+        // Display payments
+        function displayPayments() {
+            const totalAmount = payments.reduce((sum, payment) => sum + payment.amount, 0);
+            const paidAmount = payments.reduce((sum, payment) => sum + payment.paidAmount, 0);
+            
+            document.getElementById('totalAmount').textContent = `$${totalAmount.toLocaleString()}`;
+            document.getElementById('paidAmount').textContent = `$${paidAmount.toLocaleString()}`;
+            
+            const paymentList = document.getElementById('paymentList');
+            paymentList.innerHTML = payments.map(payment => `
+                <div class="payment-row">
+                    <div class="payment-details">
+                        <h4>${payment.description}</h4>
+                        <p>Due: ${new Date(payment.dueDate).toLocaleDateString()}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-weight: 600; margin-bottom: 5px;">$${payment.amount.toLocaleString()}</div>
+                        <div class="payment-status status-${payment.status}">${payment.status.toUpperCase()}</div>
+                        ${payment.status === 'pending' || payment.status === 'overdue' ? 
+                            `<button class="pay-btn" onclick="makePayment(${payment.id})">Pay Now</button>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load documents (mock data - replace with API call)
+        async function loadDocuments() {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            documents = [
+                {
+                    id: 1,
+                    title: 'Wedding Photography Contract',
+                    type: 'contract',
+                    status: 'pending_signature',
+                    date: '2025-08-10',
+                    content: 'This is the wedding photography contract content...'
+                },
+                {
+                    id: 2,
+                    title: 'Engagement Session Proposal',
+                    type: 'proposal',
+                    status: 'signed',
+                    date: '2025-07-15',
+                    content: 'This is the engagement session proposal content...'
+                },
+                {
+                    id: 3,
+                    title: 'Wedding Day Timeline',
+                    type: 'document',
+                    status: 'view_only',
+                    date: '2025-08-05',
+                    content: 'This is the wedding day timeline content...'
+                }
+            ];
+            
+            displayDocuments();
+        }
+
+        // Display documents
+        function displayDocuments() {
+            const documentList = document.getElementById('documentList');
+            documentList.innerHTML = documents.map(doc => `
+                <div class="document-item">
+                    <div class="document-info">
+                        <h4>${doc.title}</h4>
+                        <p>${new Date(doc.date).toLocaleDateString()} • ${doc.type}</p>
+                    </div>
+                    <div class="document-actions">
+                        <button class="btn btn-secondary" onclick="viewDocument(${doc.id})">View</button>
+                        ${doc.status === 'pending_signature' ? 
+                            `<button class="btn btn-primary" onclick="signDocument(${doc.id})">Sign</button>` : ''}
+                        ${doc.status === 'signed' ? 
+                            `<span class="payment-status status-paid">SIGNED</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // View document
+        function viewDocument(docId) {
+            const doc = documents.find(d => d.id === docId);
+            if (!doc) return;
+            
+            document.getElementById('modalTitle').textContent = doc.title;
+            document.getElementById('documentViewer').innerHTML = `
+                <div style="padding: 20px; background: white; border-radius: 8px;">
+                    <h3>${doc.title}</h3>
+                    <p><strong>Date:</strong> ${new Date(doc.date).toLocaleDateString()}</p>
+                    <p><strong>Type:</strong> ${doc.type}</p>
+                    <hr style="margin: 20px 0;">
+                    <div>${doc.content}</div>
+                </div>
+            `;
+            
+            // Show/hide signature section based on document status
+            const signatureSection = document.getElementById('signatureSection');
+            if (doc.status === 'pending_signature') {
+                signatureSection.style.display = 'block';
+            } else {
+                signatureSection.style.display = 'none';
+            }
+            
+            document.getElementById('documentModal').style.display = 'block';
+        }
+
+        // Initialize signature pad
+        function initSignaturePad() {
+            signatureCanvas = document.getElementById('signatureCanvas');
+            const ctx = signatureCanvas.getContext('2d');
+            
+            ctx.strokeStyle = '#2e1e1a';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            
+            signatureCanvas.addEventListener('mousedown', startDrawing);
+            signatureCanvas.addEventListener('mousemove', draw);
+            signatureCanvas.addEventListener('mouseup', stopDrawing);
+            signatureCanvas.addEventListener('mouseout', stopDrawing);
+            
+            // Touch events for mobile
+            signatureCanvas.addEventListener('touchstart', startDrawing);
+            signatureCanvas.addEventListener('touchmove', draw);
+            signatureCanvas.addEventListener('touchend', stopDrawing);
+        }
+
+        // Signature drawing functions
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            e.preventDefault();
+            const rect = signatureCanvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            
+            const ctx = signatureCanvas.getContext('2d');
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            signatureCanvas.getContext('2d').beginPath();
+        }
+
+        // Clear signature
+        function clearSignature() {
+            const ctx = signatureCanvas.getContext('2d');
+            ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+        }
+
+        // Sign document
+        async function signDocument() {
+            const signatureData = signatureCanvas.toDataURL();
+            
+            // Here you would send the signature to your backend
+            console.log('Document signed with signature:', signatureData);
+            
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            alert('Document signed successfully!');
+            closeModal();
+            
+            // Refresh documents
+            loadDocuments();
+        }
+
+        // Make payment
+        function makePayment(paymentId) {
+            const payment = payments.find(p => p.id === paymentId);
+            if (!payment) return;
+            
+            // Redirect to Stripe payment link (replace with your actual Stripe link)
+            const stripeLink = `https://buy.stripe.com/test_28o5kC8vF2vC8MM6op?prefilled_email=${currentUser.email}&client_reference_id=${paymentId}`;
+            window.open(stripeLink, '_blank');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('documentModal').style.display = 'none';
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('userData');
+            window.location.href = 'index.html';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('documentModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

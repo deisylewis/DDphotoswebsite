@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | D&D Photos</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Client portal for D&D Photos - manage your wedding photography payments, contracts, and proposals.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/logo.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2e1e1a;
+            background: linear-gradient(135deg, #fff8f6 0%, #fdf5f5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portal-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 30px;
+        }
+
+        .logo-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2e1e1a;
+            margin-bottom: 5px;
+        }
+
+        .logo-section p {
+            color: #7c6f6a;
+            font-size: 14px;
+        }
+
+        .form-container {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2e1e1a;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e8e4e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #f1c8c7;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: #f1c8c7;
+            color: #2e1e1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #e8b8b7;
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .toggle-form {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e4e1;
+        }
+
+        .toggle-form button {
+            background: none;
+            border: none;
+            color: #f1c8c7;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .toggle-form button:hover {
+            color: #e8b8b7;
+        }
+
+        .error-message {
+            background: #ffe6e6;
+            color: #d63031;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: #e6ffe6;
+            color: #00b894;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            margin: 20px 0;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f1c8c7;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #7c6f6a;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-link:hover {
+            color: #2e1e1a;
+        }
+
+        @media (max-width: 480px) {
+            .portal-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to Website</a>
+    
+    <div class="portal-container">
+        <div class="logo-section">
+            <h1>D&D Photos</h1>
+            <p>Client Portal</p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-container">
+            <h2 style="margin-bottom: 20px; color: #2e1e1a;">Welcome Back</h2>
+            
+            <div id="login-error" class="error-message"></div>
+            <div id="login-success" class="success-message"></div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+            
+            <div class="loading" id="login-loading"></div>
+            
+            <div class="toggle-form">
+                <p>Don't have an account? <button onclick="toggleForm('register')">Create Account</button></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="form-container" style="display: none;">
+            <h2 style="margin-bottom: 20px; color: #2e1e1a;">Create Account</h2>
+            
+            <div id="register-error" class="error-message"></div>
+            <div id="register-success" class="success-message"></div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" required minlength="8">
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                </div>
+                
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            
+            <div class="loading" id="register-loading"></div>
+            
+            <div class="toggle-form">
+                <p>Already have an account? <button onclick="toggleForm('login')">Sign In</button></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form toggle functionality
+        function toggleForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            if (formType === 'register') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            } else {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            }
+            
+            // Clear any error messages
+            document.querySelectorAll('.error-message, .success-message').forEach(msg => {
+                msg.style.display = 'none';
+            });
+        }
+
+        // Login form handling
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const loading = document.getElementById('login-loading');
+            const error = document.getElementById('login-error');
+            const success = document.getElementById('login-success');
+            
+            // Show loading
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            success.style.display = 'none';
+            
+            try {
+                // Simulate API call (replace with actual backend endpoint)
+                const response = await loginUser(email, password);
+                
+                if (response.success) {
+                    success.textContent = 'Login successful! Redirecting...';
+                    success.style.display = 'block';
+                    
+                    // Store user token
+                    localStorage.setItem('userToken', response.token);
+                    localStorage.setItem('userData', JSON.stringify(response.user));
+                    
+                    // Redirect to dashboard
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    error.textContent = response.message || 'Login failed. Please try again.';
+                    error.style.display = 'block';
+                }
+            } catch (err) {
+                error.textContent = 'An error occurred. Please try again.';
+                error.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+
+        // Register form handling
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+            const loading = document.getElementById('register-loading');
+            const error = document.getElementById('register-error');
+            const success = document.getElementById('register-success');
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                error.textContent = 'Passwords do not match.';
+                error.style.display = 'block';
+                return;
+            }
+            
+            // Show loading
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            success.style.display = 'none';
+            
+            try {
+                // Simulate API call (replace with actual backend endpoint)
+                const response = await registerUser(name, email, password);
+                
+                if (response.success) {
+                    success.textContent = 'Account created successfully! Please sign in.';
+                    success.style.display = 'block';
+                    
+                    // Switch to login form
+                    setTimeout(() => {
+                        toggleForm('login');
+                        document.getElementById('login-email').value = email;
+                    }, 2000);
+                } else {
+                    error.textContent = response.message || 'Registration failed. Please try again.';
+                    error.style.display = 'block';
+                }
+            } catch (err) {
+                error.textContent = 'An error occurred. Please try again.';
+                error.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+
+        // Mock API functions (replace with actual backend calls)
+        async function loginUser(email, password) {
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Mock validation (replace with actual backend validation)
+            if (email === 'demo@example.com' && password === 'password123') {
+                return {
+                    success: true,
+                    token: 'mock-jwt-token',
+                    user: {
+                        id: 1,
+                        name: 'Demo User',
+                        email: email
+                    }
+                };
+            } else {
+                return {
+                    success: false,
+                    message: 'Invalid email or password.'
+                };
+            }
+        }
+
+        async function registerUser(name, email, password) {
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Mock registration (replace with actual backend registration)
+            return {
+                success: true,
+                message: 'Account created successfully!'
+            };
+        }
+
+        // Check if user is already logged in
+        window.addEventListener('load', () => {
+            const token = localStorage.getItem('userToken');
+            if (token) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

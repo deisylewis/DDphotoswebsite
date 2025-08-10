@@ -184,25 +184,9 @@
     </script>
     
     <!-- Performance Monitoring -->
-    <script>
-      // Core Web Vitals monitoring
-      if ('PerformanceObserver' in window) {
-        const observer = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            if (entry.entryType === 'largest-contentful-paint') {
-              gtag('event', 'LCP', { value: Math.round(entry.startTime) });
-            }
-            if (entry.entryType === 'first-input') {
-              gtag('event', 'FID', { value: Math.round(entry.processingStart - entry.startTime) });
-            }
-            if (entry.entryType === 'layout-shift') {
-              gtag('event', 'CLS', { value: entry.value });
-            }
-          }
-        });
-        observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-      }
-    </script>
+    <script src="scripts/performance-monitor.js"></script>
+    <script src="scripts/seo-validator.js"></script>
+    <script src="scripts/debug-tools.js"></script>
     
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -1086,6 +1070,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/dndphotoslex" target="_blank">Facebook</a>
                         <a href="https://www.instagram.com/dndphotoslex" target="_blank">Instagram</a>
+                        <a href="portal/index.html" target="_blank">Client Portal</a>
                     </div>
                     
                     <p style="margin-top: 2rem; font-style: italic;">"What's your dream? Let's make it a reality."</p>
