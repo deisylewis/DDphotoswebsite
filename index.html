@@ -548,6 +548,18 @@
             color: #ccc;
         }
 
+        .contact-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+
         .social-links a {
             color: white;
             text-decoration: none;
@@ -865,8 +877,9 @@
                 <div class="contact-info">
                     <p><strong>Based out of Lexington, Kentucky</strong></p>
                     <p>Available for travel statewide</p>
-                    <p>Email: hello@dndphotos.com</p>
-                    <p>Phone: (859) 536-8512</p>
+                    <p>Email: <a href="mailto:hello@dndphotos.com?subject=Coming from dndphotos.com" class="contact-link">hello@dndphotos.com</a></p>
+                    <p>Phone: <a href="tel:+18595368512" class="contact-link">(859) 536-8512</a></p>
+                    <p>Text: <a href="sms:+18595368512" class="contact-link">Send us a message</a></p>
                     
                     <div class="social-links">
                         <a href="https://www.facebook.com/dndphotoslex" target="_blank">Facebook</a>
