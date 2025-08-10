@@ -359,8 +359,8 @@
             background: white;
             padding: 50px 40px;
             text-align: center;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -368,20 +368,21 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 500px;
+            border: 1px solid #f0f0f0;
         }
 
         .package:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
 
         .package h3 {
-            font-size: 26px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 25px;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #2c3e50;
+            text-transform: none;
+            letter-spacing: 0.5px;
         }
 
         .package ul {
@@ -392,9 +393,9 @@
 
         .package li {
             padding: 12px 0;
-            color: #555;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
+            color: #5a6c7d;
+            font-size: 15px;
+            border-bottom: 1px solid #f8f9fa;
             position: relative;
             padding-left: 25px;
         }
@@ -403,9 +404,9 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #4CAF50;
+            color: #27ae60;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .package li:last-child {
@@ -413,9 +414,9 @@
         }
 
         .package .price {
-            font-size: 32px;
-            font-weight: 800;
-            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
             margin-bottom: 10px;
         }
 
