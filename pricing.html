@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Packages | D&D Photos | Wedding Photography Packages Lexington, Kentucky</title>
+    <meta name="description" content="Explore our wedding photography packages starting at $1,200. Professional wedding photography in Lexington, Kentucky with customizable packages to fit your needs.">
+    <meta name="keywords" content="wedding photography packages, Lexington wedding photographer pricing, Kentucky wedding photography rates, wedding photographer packages, affordable wedding photography">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pricing & Packages | D&D Photos Wedding Photography">
+    <meta property="og:description" content="Explore our wedding photography packages starting at $1,200. Professional wedding photography in Lexington, Kentucky.">
+    <meta property="og:image" content="https://dndphotos.com/og-image.jpg">
+    <meta property="og:image:alt" content="D&D Photos Wedding Photography Packages">
+    <meta property="og:url" content="https://dndphotos.com/pricing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing & Packages | D&D Photos Wedding Photography">
+    <meta name="twitter:description" content="Explore our wedding photography packages starting at $1,200.">
+    <meta name="twitter:image" content="https://dndphotos.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="D&D Photos Wedding Photography Packages">
+    <meta name="twitter:site" content="@dndphotos">
+    <meta name="twitter:creator" content="@dndphotos">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dndphotos.com/pricing.html">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2e1e1a;
+            background: linear-gradient(rgba(253, 245, 245, 0.95), rgba(255, 255, 255, 0.95), rgba(253, 245, 245, 0.95)), url('optimized-images/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 8px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            color: #2e1e1a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            background: rgba(241, 200, 199, 0.3);
+            color: #2e1e1a;
+        }
+        
+        /* Main content */
+        .main-content {
+            padding-top: 80px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header section */
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #2e1e1a;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #2e1e1a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #2e1e1a;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Packages section */
+        .packages {
+            background: #fdf5f5;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .package {
+            background: #f9efeb;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .package:hover {
+            background: #fbefef;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #f1c8c7;
+        }
+        
+        .package h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2e1e1a;
+        }
+        
+        .package .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f1c8c7;
+            margin-bottom: 20px;
+        }
+        
+        .package ul {
+            list-style: none;
+            margin: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .package li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #2e1e1a;
+        }
+        
+        .package li:last-child {
+            border-bottom: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #f1c8c7;
+            color: #2e1e1a;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        /* Features section */
+        .features {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(241, 200, 199, 0.2);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #2e1e1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2e1e1a;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2e1e1a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        footer a {
+            color: #f1c8c7;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2e1e1a;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .package {
+                padding: 30px 20px;
+                min-height: auto;
+            }
+            
+            .package h3 {
+                font-size: 1.5rem;
+            }
+            
+            .package .price {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" aria-label="Go to home section">HOME</a></li>
+                    <li><a href="index.html#about" aria-label="Go to about section">ABOUT</a></li>
+                    <li><a href="pricing.html" aria-label="Go to pricing packages">PRICING</a></li>
+                    <li><a href="gallery.html" aria-label="View wedding photography gallery">GALLERY</a></li>
+                    <li><a href="experience.html" aria-label="View our photography process">EXPERIENCE</a></li>
+                    <li><a href="index.html#contact" aria-label="Go to contact section">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <header class="header">
+                <h1>Pricing & Packages</h1>
+                <p>Choose the perfect wedding photography package for your special day</p>
+            </header>
+            
+            <!-- Packages Section -->
+            <section class="section packages">
+                <h2 class="section-title">Our Packages</h2>
+                
+                <div class="packages-grid">
+                    <div class="package">
+                        <div>
+                            <h3>Essential</h3>
+                            <div class="price">$1,200</div>
+                            <ul>
+                                <li>6 hours of coverage</li>
+                                <li>400+ edited images</li>
+                                <li>Online gallery</li>
+                                <li>Digital download</li>
+                                <li>Print release</li>
+                                <li>Engagement session (optional add-on)</li>
+                            </ul>
+                        </div>
+                        <a href="index.html#contact" class="btn">Book Now</a>
+                    </div>
+                    
+                    <div class="package">
+                        <div>
+                            <h3>Classic</h3>
+                            <div class="price">$1,800</div>
+                            <ul>
+                                <li>8 hours of coverage</li>
+                                <li>600+ edited images</li>
+                                <li>Online gallery</li>
+                                <li>Digital download</li>
+                                <li>Print release</li>
+                                <li>Engagement session included</li>
+                                <li>Wedding album (10x10)</li>
+                                <li>Second photographer</li>
+                            </ul>
+                        </div>
+                        <a href="index.html#contact" class="btn">Book Now</a>
+                    </div>
+                    
+                    <div class="package">
+                        <div>
+                            <h3>Premium</h3>
+                            <div class="price">$2,500</div>
+                            <ul>
+                                <li>Full day coverage</li>
+                                <li>800+ edited images</li>
+                                <li>Online gallery</li>
+                                <li>Digital download</li>
+                                <li>Print release</li>
+                                <li>Engagement session included</li>
+                                <li>Wedding album (12x12)</li>
+                                <li>Second photographer</li>
+                                <li>Bridal session</li>
+                                <li>Canvas print (16x20)</li>
+                                <li>USB with all images</li>
+                            </ul>
+                        </div>
+                        <a href="index.html#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="features">
+                <h2>All Our Photography Packages Include</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>Professional Editing</h3>
+                        <p>Every image is professionally edited to ensure the highest quality and consistency across your entire gallery.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Online Gallery</h3>
+                        <p>Easy-to-use online gallery where you can view, download, and share your images with family and friends.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Print Release</h3>
+                        <p>Full print release included with all packages, so you can print your images anywhere you choose.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Pre-Wedding Consultation</h3>
+                        <p>30-minute consultation a month before your wedding to go over all final details and ensure we're prepared for your big day.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Timeline Assistance</h3>
+                        <p>Help creating a personalized wedding day timeline that ensures ample time for photography without feeling rushed.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>Fast Delivery</h3>
+                        <p>Quick turnaround times with sneak peeks within 48 hours and full gallery delivery within 6-8 weeks.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 by D&D Photos. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
