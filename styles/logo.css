@@ -1,0 +1,74 @@
+/* Logo Styles */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&family=Parisienne&family=Dancing+Script:wght@400;700&display=swap');
+
+:root {
+  --sticky-header-offset: 60px;
+  --logo-overlap-desktop: 32px;
+  --logo-overlap-mobile: 16px;
+}
+
+.brand-logo {
+  position: absolute;
+  top: var(--logo-overlap-desktop);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.brand-logo-main {
+  font-family: 'Great Vibes', 'Parisienne', 'Dancing Script', cursive;
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+  line-height: 0.9;
+  margin: 0;
+  display: block;
+}
+
+.brand-logo-subtitle {
+  font-family: 'Great Vibes', 'Parisienne', 'Dancing Script', cursive;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  margin: 0;
+  margin-top: -8px;
+  margin-left: 12px;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brand-logo {
+    top: var(--logo-overlap-mobile);
+  }
+  
+  .brand-logo-main {
+    font-size: clamp(36px, 6vw, 60px);
+  }
+  
+  .brand-logo-subtitle {
+    font-size: clamp(16px, 2.5vw, 24px);
+    margin-left: 8px;
+  }
+}
+
+/* Ensure logo doesn't clash with sticky nav */
+@media (min-width: 769px) {
+  .brand-logo {
+    top: calc(var(--logo-overlap-desktop) + var(--sticky-header-offset));
+  }
+}
+
+/* Hover effects */
+.brand-logo:hover .brand-logo-main,
+.brand-logo:hover .brand-logo-subtitle {
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+  transition: text-shadow 0.3s ease;
+}
