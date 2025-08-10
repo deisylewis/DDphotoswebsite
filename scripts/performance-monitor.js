@@ -222,3 +222,4 @@
     window.performanceScore = calculatePerformanceScore;
 
 })();
+
