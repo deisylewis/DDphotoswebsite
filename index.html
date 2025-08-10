@@ -114,10 +114,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            padding: 3px 0;
+            padding: 8px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
         }
 
         .nav-container {
@@ -144,15 +146,19 @@
         }
 
         .nav-menu a {
-            color: #333;
+            color: #2e1e1a;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
         }
 
         .nav-menu a:hover {
-            opacity: 0.7;
+            background: rgba(241, 200, 199, 0.3);
+            color: #2e1e1a;
         }
 
         /* Hero Section */
@@ -197,7 +203,7 @@
             color: white;
             margin-bottom: 30px;
             line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -207,7 +213,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Photo Showcase */
@@ -291,7 +297,21 @@
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #333;
+            color: #2e1e1a;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f1c8c7, #e91e63);
+            border-radius: 2px;
         }
 
         .section-subtitle {
