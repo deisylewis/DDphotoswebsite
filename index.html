@@ -258,7 +258,7 @@
 
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
@@ -272,6 +272,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 500px;
         }
 
         .package:hover {
@@ -493,6 +497,7 @@
 
             .package {
                 padding: 40px 30px;
+                min-height: auto;
             }
 
             .package h3 {
@@ -616,45 +621,57 @@
             
             <div class="packages-grid">
                 <div class="package">
-                    <h3>The Silver Collection</h3>
-                    <ul>
-                        <li>4 Hours of Coverage</li>
-                        <li>1 Professional Photographer</li>
-                        <li>Digital Delivery</li>
-                        <li>Print Release</li>
-                        <li>Online Gallery</li>
-                    </ul>
-                    <div class="price">$1,200</div>
-                    <div class="price-note">Perfect for intimate celebrations</div>
+                    <div>
+                        <h3>The Silver Collection</h3>
+                        <ul>
+                            <li>4 Hours of Coverage</li>
+                            <li>1 Professional Photographer</li>
+                            <li>Digital Delivery</li>
+                            <li>Print Release</li>
+                            <li>Online Gallery</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="price">$1,200</div>
+                        <div class="price-note">Perfect for intimate celebrations</div>
+                    </div>
                 </div>
 
                 <div class="package">
-                    <h3>The Gold Collection</h3>
-                    <ul>
-                        <li>6 Hours of Coverage</li>
-                        <li>1 Professional Photographer</li>
-                        <li>Engagement Session</li>
-                        <li>Digital Delivery</li>
-                        <li>Print Release</li>
-                        <li>Online Gallery</li>
-                    </ul>
-                    <div class="price">$1,600</div>
-                    <div class="price-note">Most popular choice</div>
+                    <div>
+                        <h3>The Gold Collection</h3>
+                        <ul>
+                            <li>6 Hours of Coverage</li>
+                            <li>1 Professional Photographer</li>
+                            <li>Engagement Session</li>
+                            <li>Digital Delivery</li>
+                            <li>Print Release</li>
+                            <li>Online Gallery</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="price">$1,600</div>
+                        <div class="price-note">Most popular choice</div>
+                    </div>
                 </div>
 
                 <div class="package">
-                    <h3>The Diamond Collection</h3>
-                    <ul>
-                        <li>8 Hours of Coverage</li>
-                        <li>2 Professional Photographers</li>
-                        <li>Engagement Session</li>
-                        <li>Digital Delivery</li>
-                        <li>Print Release</li>
-                        <li>Online Gallery</li>
-                        <li>Wedding Album</li>
-                    </ul>
-                    <div class="price">$2,800</div>
-                    <div class="price-note">Complete wedding experience</div>
+                    <div>
+                        <h3>The Diamond Collection</h3>
+                        <ul>
+                            <li>8 Hours of Coverage</li>
+                            <li>2 Professional Photographers</li>
+                            <li>Engagement Session</li>
+                            <li>Digital Delivery</li>
+                            <li>Print Release</li>
+                            <li>Online Gallery</li>
+                            <li>Wedding Album</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="price">$2,800</div>
+                        <div class="price-note">Complete wedding experience</div>
+                    </div>
                 </div>
             </div>
 
