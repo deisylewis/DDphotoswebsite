@@ -789,11 +789,11 @@
                     <h2 class="section-title">Let's Talk!</h2>
                     <p>Tell us about your vision for your special day</p>
                     
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Wedding Date">
-                        <textarea rows="5" placeholder="Tell me about your vision for your special day..." required></textarea>
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="wedding_date" placeholder="Wedding Date">
+                        <textarea name="message" rows="5" placeholder="Tell me about your vision for your special day..." required></textarea>
                         <button type="submit">LET'S CONNECT</button>
                     </form>
                 </div>
@@ -833,11 +833,22 @@
             });
         });
 
-        // Contact form
+        // Contact form - Formspree will handle the submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We\'ll get back to you soon.');
-            this.reset();
+            // Formspree handles the submission automatically
+            // Show loading state
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            // Reset form after successful submission
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                this.reset();
+                alert('Thank you for your message! We\'ll get back to you soon.');
+            }, 2000);
         });
 
         // Simple image loading
