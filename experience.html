@@ -73,25 +73,18 @@
         }
         
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2e1e1a;
-            text-decoration: none;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
         
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 30px;
         }
         
         .nav-menu a {
@@ -123,68 +116,34 @@
         
         /* Header section */
         .header {
-            position: relative;
             text-align: center;
-            padding: 0 0 60px;
-            margin-bottom: 40px;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .header-background {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-        
-        .header-background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-        }
-        
-        .header-background::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(253, 245, 245, 0.3), rgba(253, 245, 245, 0.8));
+            padding: 40px 0 30px;
+            margin-bottom: 30px;
         }
         
         .header-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
             width: 100%;
             padding: 0 20px;
         }
         
         .header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #2e1e1a;
-            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
         }
         
         .header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #2e1e1a;
             max-width: 600px;
             margin: 0 auto;
-            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8);
         }
         
         /* Timeline container */
         .timeline-container {
             position: relative;
-            padding: 40px 0 60px;
+            padding: 20px 0 40px;
         }
         
         /* Timeline spine */
@@ -234,7 +193,7 @@
         
         .step-row {
             display: flex;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             align-items: center;
         }
         
@@ -246,9 +205,9 @@
             width: 45%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(241, 200, 199, 0.2);
             transition: all 0.3s ease;
             position: relative;
@@ -284,15 +243,15 @@
         .step-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
         .step-icon {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             background: #fdf5f5;
-            border-radius: 12px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -300,8 +259,8 @@
         }
         
         .step-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 18px;
+            height: 18px;
             color: #f1c8c7;
         }
         
@@ -329,27 +288,28 @@
         }
         
         .step-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #2e1e1a;
-            margin: 4px 0 8px 0;
+            margin: 2px 0 6px 0;
         }
         
         .step-description {
             color: #64748b;
-            line-height: 1.6;
+            line-height: 1.4;
+            font-size: 0.95rem;
         }
         
         /* Footer callout */
         .footer-callout {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border-radius: 24px;
+            border-radius: 20px;
             border: 1px solid rgba(241, 200, 199, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 48px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 32px;
             text-align: center;
-            margin: 60px 0;
+            margin: 40px 0;
         }
         
         .footer-callout h2 {
@@ -424,6 +384,24 @@
         
         .header-cta {
             margin-top: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2e1e1a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        footer a {
+            color: #f1c8c7;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
         }
         
         /* Responsive design */
@@ -507,24 +485,25 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">D&D Photos</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" aria-label="Go to home section">HOME</a></li>
+                    <li><a href="index.html#about" aria-label="Go to about section">ABOUT</a></li>
+                    <li><a href="index.html#packages" aria-label="Go to pricing packages">PRICING</a></li>
+                    <li><a href="gallery.html" aria-label="View wedding photography gallery">GALLERY</a></li>
+                    <li><a href="experience.html" aria-label="View our photography process">EXPERIENCE</a></li>
+                    <li><a href="index.html#contact" aria-label="Go to contact section">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     
     <main id="main-content" class="main-content">
         <div class="container">
             <header class="header">
-                <div class="header-background">
-                    <img src="optimized-images/featured1.jpg" alt="Beautiful wedding photography showcasing the D&D Photos experience" loading="eager" width="1200" height="400">
-                </div>
                 <div class="header-content">
                     <h1>The D&D Photos Experience</h1>
                     <p>A simple, guided journey from hello to a gallery you love.</p>
@@ -850,5 +829,12 @@
             });
         });
     </script>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 by D&D Photos. All rights reserved. | <a href="https://dndphotos.com/privacy-policy">Privacy Policy</a> | <a href="https://dndphotos.com/terms-of-service">Terms of Service</a></p>
+        </div>
+    </footer>
 </body>
 </html>
