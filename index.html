@@ -258,38 +258,75 @@
 
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .package {
             background: white;
-            padding: 40px;
-            text-align: left;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         .package h3 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .package ul {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            text-align: left;
         }
 
         .package li {
-            padding: 5px 0;
+            padding: 12px 0;
             color: #555;
-            font-size: 15px;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .package li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .package li:last-child {
+            border-bottom: none;
         }
 
         .package .price {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
+            font-weight: 800;
             color: #333;
+            margin-bottom: 10px;
+        }
+
+        .package .price-note {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
         }
 
         /* Video Notice */
@@ -451,6 +488,20 @@
 
             .packages-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .package {
+                padding: 40px 30px;
+            }
+
+            .package h3 {
+                font-size: 24px;
+            }
+
+            .package li {
+                font-size: 15px;
+                padding: 10px 0;
             }
 
             .showcase-grid {
@@ -565,38 +616,45 @@
             
             <div class="packages-grid">
                 <div class="package">
-                    <h3>THE SILVER COLLECTION</h3>
+                    <h3>The Silver Collection</h3>
                     <ul>
                         <li>4 Hours of Coverage</li>
-                        <li>1 Photographer</li>
+                        <li>1 Professional Photographer</li>
                         <li>Digital Delivery</li>
                         <li>Print Release</li>
+                        <li>Online Gallery</li>
                     </ul>
                     <div class="price">$1,200</div>
+                    <div class="price-note">Perfect for intimate celebrations</div>
                 </div>
 
                 <div class="package">
-                    <h3>THE GOLD COLLECTION</h3>
+                    <h3>The Gold Collection</h3>
                     <ul>
                         <li>6 Hours of Coverage</li>
-                        <li>1 Photographer</li>
-                        <li>Print Release</li>
+                        <li>1 Professional Photographer</li>
                         <li>Engagement Session</li>
                         <li>Digital Delivery</li>
+                        <li>Print Release</li>
+                        <li>Online Gallery</li>
                     </ul>
                     <div class="price">$1,600</div>
+                    <div class="price-note">Most popular choice</div>
                 </div>
 
                 <div class="package">
-                    <h3>THE DIAMOND COLLECTION</h3>
+                    <h3>The Diamond Collection</h3>
                     <ul>
                         <li>8 Hours of Coverage</li>
-                        <li>2 Photographers</li>
+                        <li>2 Professional Photographers</li>
                         <li>Engagement Session</li>
-                        <li>Print Release</li>
                         <li>Digital Delivery</li>
+                        <li>Print Release</li>
+                        <li>Online Gallery</li>
+                        <li>Wedding Album</li>
                     </ul>
                     <div class="price">$2,800</div>
+                    <div class="price-note">Complete wedding experience</div>
                 </div>
             </div>
 
