@@ -37,65 +37,19 @@
     <link rel="canonical" href="https://dndphotos.com/experience.html">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="styles/shared.css" as="style">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/shared.css">
     
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Experience specific styles */
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #2e1e1a;
             background: linear-gradient(rgba(253, 245, 245, 0.95), rgba(255, 255, 255, 0.95), rgba(253, 245, 245, 0.95)), url('optimized-images/hero-image.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            padding: 8px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        .nav-menu a {
-            color: #2e1e1a;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 6px;
-            position: relative;
         }
         
         .nav-menu a:hover {
@@ -486,32 +440,53 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Navigation -->
-    <header>
-        <nav role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <ul class="nav-menu">
-                    <li><a href="index.html" aria-label="Go to home section">HOME</a></li>
-                    <li><a href="index.html#about" aria-label="Go to about section">ABOUT</a></li>
-                    <li><a href="pricing.html" aria-label="Go to pricing packages">PRICING</a></li>
-                    <li><a href="gallery.html" aria-label="View wedding photography gallery">GALLERY</a></li>
-                    <li><a href="experience.html" aria-label="View our photography process">EXPERIENCE</a></li>
-                    <li><a href="index.html#contact" aria-label="Go to contact section">CONTACT</a></li>
-                </ul>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-logo-main">D&D</span>
+                <span class="brand-logo-subtitle">photos</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <li><a href="pricing.html">PRICING</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="experience.html">EXPERIENCE</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-header-logo">
+                    <a href="index.html" class="brand-logo">
+                        <span class="brand-logo-main">D&D</span>
+                        <span class="brand-logo-subtitle">photos</span>
+                    </a>
+                </div>
+                
+                <div class="header-collage">
+                    <img src="optimized-images/featured1.jpg" alt="Wedding photography" loading="lazy">
+                    <img src="optimized-images/featured2.jpg" alt="Wedding photography" loading="lazy">
+                    <img src="optimized-images/featured3.jpg" alt="Wedding photography" loading="lazy">
+                    <img src="optimized-images/featured4.jpg" alt="Wedding photography" loading="lazy">
+                </div>
+                
+                <h1>The D&D Photos Experience</h1>
+                <p>A simple, guided journey from hello to a gallery you love.</p>
+                
+                <div class="header-cta" style="margin-top: 30px;">
+                    <a href="index.html#contact" class="btn btn-primary btn-large" style="display: inline-block; background: #f1c8c7; color: #2e1e1a; padding: 16px 32px; text-decoration: none; border-radius: 20px; font-weight: 700; box-shadow: 0 6px 20px rgba(241, 200, 199, 0.4);">Start Your Journey - Inquire Now</a>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
-    
+
     <main id="main-content" class="main-content">
         <div class="container">
-            <header class="header">
-                <div class="header-content">
-                    <h1>The D&D Photos Experience</h1>
-                    <p>A simple, guided journey from hello to a gallery you love.</p>
-                    <div class="header-cta">
-                        <a href="index.html#contact" class="btn btn-primary btn-large" style="display: inline-block; background: #f1c8c7; color: #2e1e1a; padding: 16px 32px; text-decoration: none; border-radius: 20px; font-weight: 700; box-shadow: 0 6px 20px rgba(241, 200, 199, 0.4);">Start Your Journey - Inquire Now</a>
-                    </div>
-                </div>
-            </header>
             
             <div class="timeline-container">
                 <div class="timeline-spine"></div>
