@@ -81,6 +81,16 @@
             color: #333;
             background-color: #F8F5F2;
         }
+        
+        /* Wedding Color Scheme */
+        :root {
+            --wedding-primary: #F8F5F2;
+            --wedding-dark: #2D3748;
+            --wedding-muted: #718096;
+            --wedding-accent: #E53E3E;
+            --wedding-overlay: rgba(255, 255, 255, 0.9);
+            --wedding-accent-30: rgba(229, 62, 62, 0.3);
+        }
 
         .container {
             max-width: 1000px;
@@ -356,11 +366,11 @@
         }
 
         .package {
-            background: #FFFBF9;
+            background: var(--wedding-overlay);
             padding: 50px 40px;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(255, 193, 203, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(229, 62, 62, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -368,7 +378,8 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 500px;
-            border: 1px solid rgba(255, 193, 203, 0.2);
+            border: 1px solid var(--wedding-accent-30);
+            backdrop-filter: blur(8px);
         }
 
         .package:hover {
@@ -380,7 +391,7 @@
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 25px;
-            color: #333333;
+            color: var(--wedding-dark);
             text-transform: none;
             letter-spacing: 0.5px;
         }
@@ -393,9 +404,9 @@
 
         .package li {
             padding: 12px 0;
-            color: #666666;
+            color: var(--wedding-muted);
             font-size: 15px;
-            border-bottom: 1px solid #fafafa;
+            border-bottom: 1px solid rgba(229, 62, 62, 0.1);
             position: relative;
             padding-left: 25px;
         }
@@ -404,7 +415,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #F7D7E0;
+            color: var(--wedding-accent);
             font-weight: bold;
             font-size: 16px;
         }
@@ -416,13 +427,13 @@
         .package .price {
             font-size: 28px;
             font-weight: 700;
-            color: #F7D7E0;
+            color: var(--wedding-accent);
             margin-bottom: 10px;
         }
 
         .package .price-note {
             font-size: 14px;
-            color: #666666;
+            color: var(--wedding-muted);
             font-style: italic;
         }
 
@@ -550,14 +561,14 @@
         }
 
         .contact-link {
-            color: #FFC0CB;
+            color: var(--wedding-accent);
             text-decoration: underline;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .contact-link:hover {
-            color: #F7D7E0;
+            color: #C53030;
             text-decoration: none;
         }
 
@@ -581,8 +592,8 @@
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: #FFC0CB;
-            color: #333333;
+            background: var(--wedding-accent);
+            color: white;
             text-decoration: none;
             font-weight: 500;
             border-radius: 25px;
