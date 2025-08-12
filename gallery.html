@@ -112,6 +112,107 @@
                 gap: 15px;
             }
         }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #f1c8c7;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(241, 200, 199, 0.8);
+            color: #2e1e1a;
+        }
+
+        /* Responsive lightbox */
+        @media (max-width: 768px) {
+            .lightbox-prev {
+                left: 20px;
+            }
+            
+            .lightbox-next {
+                right: 20px;
+            }
+            
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -200,6 +301,99 @@
                 <div class="gallery-item">
                     <img src="optimized-images/gallery12.jpg" alt="Wedding photography gallery" loading="lazy">
                 </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery13.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery14.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery15.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery16.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery17.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery18.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery19.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery20.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery21.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery22.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery23.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery24.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery25.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery26.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery27.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery28.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery29.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery30.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery31.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery32.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery33.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery34.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery35.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery36.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery37.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery38.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery39.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery40.jpg" alt="Wedding photography gallery" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery41.jpg" alt="Wedding photography showcase" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery42.jpg" alt="Wedding photography collection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="optimized-images/gallery43.jpg" alt="Wedding photography portfolio" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -218,6 +412,87 @@
                 this.classList.add('loaded');
             });
         });
+
+        // Lightbox functionality
+        function createLightbox() {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `
+                <div class="lightbox-content">
+                    <img src="" alt="" class="lightbox-image">
+                    <button class="lightbox-close">&times;</button>
+                    <button class="lightbox-prev">&lt;</button>
+                    <button class="lightbox-next">&gt;</button>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+            return lightbox;
+        }
+
+        let currentImageIndex = 0;
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        let lightbox = null;
+
+        // Initialize lightbox
+        function initLightbox() {
+            lightbox = createLightbox();
+            
+            // Close lightbox
+            lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Navigation
+            lightbox.querySelector('.lightbox-prev').addEventListener('click', showPrevImage);
+            lightbox.querySelector('.lightbox-next').addEventListener('click', showNextImage);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrevImage();
+                if (e.key === 'ArrowRight') showNextImage();
+            });
+        }
+
+        function openLightbox(imageSrc, imageAlt, index) {
+            currentImageIndex = index;
+            const lightboxImg = lightbox.querySelector('.lightbox-image');
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = imageAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const img = galleryImages[currentImageIndex];
+            openLightbox(img.src, img.alt, currentImageIndex);
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const img = galleryImages[currentImageIndex];
+            openLightbox(img.src, img.alt, currentImageIndex);
+        }
+
+        // Add click events to gallery images
+        galleryImages.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() {
+                openLightbox(this.src, this.alt, index);
+            });
+        });
+
+        // Initialize lightbox when page loads
+        document.addEventListener('DOMContentLoaded', initLightbox);
     </script>
 </body>
 </html>
